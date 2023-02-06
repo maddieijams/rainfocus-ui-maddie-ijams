@@ -1,0 +1,131 @@
+@use "../../sass/variables";
+@use "../../sass/mixins";
+
+#nav {
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  top: 0;
+
+  #left {
+    padding: 12px 0px;
+    width: variables.$leftNavWidth;
+    border-right: 1px solid variables.$gray10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    @include mixins.responsive(sm) {
+      width: calc(variables.$leftNavWidth - 15px);
+    }
+
+    #collapse-arrow {
+      display: none;
+      cursor: pointer;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      &.rotate {
+        img {
+          transform: rotate(180deg);
+        }
+      }
+      @include mixins.responsive(md) {
+        display: flex;
+      }
+    }
+
+    #logos {
+      display: flex;
+      flex-direction: column;
+      div {
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    #user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      div {
+        padding-bottom: 1.5rem;
+      }
+    }
+  }
+
+  .right {
+    border-right: 1px solid variables.$gray10;
+    padding: 12px 8px;
+    background-color: white;
+    z-index: 1;
+    visibility: hidden;
+    transition: visibility 0.5s, max-width 0.5s;
+    max-width: 0;
+    overflow: hidden;
+    &.open {
+      visibility: visible;
+      max-width: calc(variables.$rightNavWidth - 16px);
+    }
+  }
+
+  h4 {
+    margin: 0;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  #subtitle-text {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 18px;
+    padding-bottom: 12px;
+  }
+
+  #nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    cursor: pointer;
+    color: variables.$gray30;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    &.parent {
+      height: 40px;
+      line-height: 18px;
+      &.active {
+        background-color: variables.$lightPurple;
+        border-radius: 8px;
+        color: variables.$purple;
+      }
+    }
+    &.sub {
+      line-height: 14px;
+      height: 30px;
+    }
+  }
+
+  .nav-item::before {
+    content: url("../../assets/nav-circle.svg");
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    margin: 0 10px;
+  }
+
+  .active::before {
+    content: url("../../assets/nav-circle-purple.svg");
+  }
+
+  .sub::before {
+    visibility: hidden;
+  }
+}

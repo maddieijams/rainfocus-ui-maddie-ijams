@@ -1,0 +1,15 @@
+@use "../../sass/variables";
+@use "../../sass/mixins";
+
+#button {
+  button {
+    color: white;
+    background-color: variables.$purple;
+    border-radius: 4px;
+    border-style: none;
+    padding: 8px 16px;
+    @include mixins.responsive(lg) {
+      margin-top: 2rem;
+    }
+  }
+}

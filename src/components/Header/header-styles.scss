@@ -1,0 +1,66 @@
+@use "../../sass/variables";
+@use "../../sass/mixins";
+
+.header {
+  border-bottom: 1px solid variables.$gray20;
+  color: variables.$black;
+
+  h1 {
+    @include mixins.responsive(lg) {
+      margin-top: 0.5rem;
+    }
+    @include mixins.responsive(sm) {
+      font-size: 23px;
+      line-height: 26px;
+      margin-bottom: 0.5rem;
+    }
+  }
+  h2 {
+    @include mixins.responsive(sm) {
+      font-size: 20px;
+    }
+  }
+
+  #logo {
+    width: 89px;
+    height: 89px;
+  }
+
+  .row {
+    justify-content: space-between;
+    @include mixins.responsive(lg) {
+      flex-wrap: wrap;
+    }
+    .row {
+      @include mixins.responsive(lg) {
+        justify-content: left;
+        width: 100%;
+        flex-wrap: nowrap;
+      }
+      @include mixins.responsive(md) {
+        flex-wrap: wrap;
+      }
+    }
+
+    .col {
+      display: flex;
+      margin-right: 1rem;
+      flex-direction: column;
+      flex: 0 0 auto;
+      justify-content: space-between;
+    }
+  }
+
+  #event-setup {
+    padding: 2rem 0;
+  }
+
+  .subtitle-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    @include mixins.responsive(sm) {
+      font-size: 14px;
+    }
+  }
+}

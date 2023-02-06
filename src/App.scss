@@ -1,0 +1,71 @@
+@use "./sass/variables.scss";
+@use "./sass/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap");
+
+body {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+h5 {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0.5rem 0;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center {
+  justify-content: center;
+}
+
+#content {
+  padding: 40px 48px;
+  margin-left: calc(variables.$leftNavWidth + variables.$rightNavWidth);
+  width: calc(100vw - (variables.$rightNavWidth + variables.$leftNavWidth));
+  @include mixins.responsive(md) {
+    width: calc(100vw - variables.$leftNavWidth);
+    margin-left: calc(variables.$leftNavWidth);
+    padding: 10px 18px;
+  }
+  @include mixins.responsive(sm) {
+    padding: 2px 10px;
+  }
+}

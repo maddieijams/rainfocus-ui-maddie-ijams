@@ -1,0 +1,88 @@
+@use "../../sass/variables";
+@use "../../sass/mixins";
+
+.card-container {
+  color: variables.$gray40;
+  font-weight: 400;
+
+  h3 {
+    @include mixins.responsive(sm) {
+      font-size: 18px;
+    }
+  }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 1rem;
+    }
+  }
+
+  .card-body {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .col {
+    flex: 0 0 32%;
+    @include mixins.responsive(lg) {
+      flex: 0 0 48%;
+    }
+    @include mixins.responsive(sm) {
+      flex: 0 0 100%;
+    }
+  }
+
+  .card {
+    box-sizing: border-box;
+    margin-bottom: 5%;
+    padding: 24px 32px;
+    border: 1px solid variables.$gray10;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    &.add-new {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    &.with-columns {
+      margin-bottom: 0;
+      padding: 16px 24px;
+      .row {
+        display: inline-flex;
+        flex-wrap: wrap;
+        @include mixins.responsive(lg) {
+          display: block;
+        }
+        .col {
+          flex: 0 0 auto;
+          justify-content: space-between;
+          width: 221px;
+          @include mixins.responsive(xl) {
+            width: 180px;
+          }
+          @include mixins.responsive(lg) {
+            width: fit-content;
+          }
+        }
+      }
+    }
+  }
+
+  h3::before {
+    content: url("../../assets/attendee.svg");
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    margin-right: 1rem;
+  }
+}

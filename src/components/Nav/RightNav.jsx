@@ -28,7 +28,7 @@ export default function RightNav({ sidebarOpen }) {
       className={`right ${sidebarOpen && "open"}`}
       style={{ visibility: sidebarOpen ? "visible" : "hidden" }}
     >
-      <h4>RainFocus Summit</h4>
+      <h4>Sidebar Title</h4>
       <div id="subtitle-text">Lehi, UT &bull; December 15th</div>
       <SearchBar />
       {Object.keys(navData).map((key) => (

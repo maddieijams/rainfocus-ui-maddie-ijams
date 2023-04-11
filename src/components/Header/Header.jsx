@@ -14,7 +14,7 @@ export default function Header() {
               <img alt="header logo" id="logo" src={headerLogo} />
             </Col>
             <Col>
-              <h1>RainFocus Summit</h1>
+              <h1>Mock Responsive Layout</h1>
               <div className="subtitle-text">December 15th</div>
               <div className="subtitle-text">Lehi, Utah</div>
             </Col>
